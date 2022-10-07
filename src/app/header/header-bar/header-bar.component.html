@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="#" (click)="onFeatureClicked('home')">
         <img src="https://freesvg.org/img/liste.png" alt="Bootstrap" width="30" height="25" >
         TO-DO List
       </a>
@@ -10,10 +10,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#">Home</a>
+            <a class="nav-link" aria-current="page" href="#" (click)="onFeatureClicked('home')">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tasklist</a>
+            <a class="nav-link" href="#" (click)="onFeatureClicked('tasklist')">Tasklist</a>
           </li>
         </ul>
         <span class="navbar-text">

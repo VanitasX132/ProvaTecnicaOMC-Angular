@@ -1,0 +1,20 @@
+<form>
+    <div class="mb-3">
+        <label for="taskname" class="form-label">Task name</label>
+        <input id="taskname" class="form-control" type="text" placeholder="Task name goes here..." [formControl]="taskNameForm">
+    </div>
+    <div class="mb-3">
+        <label for="taskpropietary" class="form-label">Task propietary</label>
+        <input type="text" class="form-control" id="taskpropietary" placeholder="Task propietary goes here..." [formControl]="taskPropietaryForm">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" [formControl]="taskCompletedForm">
+        <label class="form-check-label" for="exampleCheck1">Is it completed?</label>
+    </div>
+    <br/><br/>
+    <div class="row">
+        <button class="btn btn-dark" (click)="createNewTask()">Create</button>
+        <p></p>
+        <button class="btn btn-danger" (click)="cancelNewTask()">Cancel</button>
+    </div>
+</form>

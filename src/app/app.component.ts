@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'TO-DO List';
+  selectedFeature = 'home';
+
+  loadFeature(feature: string) {
+    this.selectedFeature = feature;
+  }
 }

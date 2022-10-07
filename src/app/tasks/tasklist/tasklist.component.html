@@ -1,11 +1,9 @@
-<ul class="list-group" *ngFor="let task of tasks; let i = index">
-    <a href="#" class="list-group-item d-flex justify-content-between align-items-start">
-        <div class="d-flex w-100 justify-content-between">
-            <div class="fw-bold" style="font-size: 20px;">{{task.getName()}}</div>
-            <small *ngIf="task.isCompleted()" 
-            style="background-color: lightgreen; border: 1px solid green;">Complete</small>
-            <small *ngIf="!task.isCompleted()" 
-            style="background-color: lightcoral; border: 1px solid red;">Incomplete</small>
-        </div>
-    </a>
-</ul>  
+<a href="#" class="list-group-item d-flex justify-content-between align-items-start" (click)="onTaskClicked()">
+    <div class="d-flex w-100 justify-content-between">
+        <div class="fw-bold" style="font-size: 20px;">{{task.getName()}}</div>
+        <small *ngIf="task.isCompleted()" 
+        style="background-color: lightgreen; border: 1px solid green;">&nbsp;&nbsp;Complete&nbsp;&nbsp;</small>
+        <small *ngIf="!task.isCompleted()" 
+        style="background-color: lightcoral; border: 1px solid red;">&nbsp;Incomplete&nbsp;</small>
+    </div>
+</a>

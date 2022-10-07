@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Task } from '../task.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Todo } from '../task.model';
 
 @Component({
   selector: 'app-tasklist',
@@ -7,22 +7,19 @@ import { Task } from '../task.model';
   styleUrls: ['./tasklist.component.css']
 })
 export class TasklistComponent implements OnInit {
+  @Input() task: Todo = new Todo(0,"","",false);
+  @Input() index: number = 0;
 
-  tasks: Task[] = [];
+  @Output() indexGiven = new EventEmitter<number>();
+
+  onTaskClicked() {
+    this.indexGiven.emit(this.index);
+
+  }
 
   constructor() { }
 
-  public generateDummyData(): void {
-    this.tasks = [new Task(1,"Task1", "User1", true),
-    new Task(2,"Task2", "User1", false),
-    new Task(3,"Task3", "User2", true),
-    new Task(4,"Task4", "User2", false),
-    new Task(5,"Task5", "User3", false),
-    new Task(6,"Task6", "User3", true)];
-  }
-
   ngOnInit(): void {
-    this.generateDummyData();
   }
 
 }

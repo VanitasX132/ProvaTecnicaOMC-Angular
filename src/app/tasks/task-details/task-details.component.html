@@ -1,1 +1,43 @@
-<p>task-details works!</p>
+<div>
+    <h2 *ngIf="editable === true">{{ indexedItem.getName() }}</h2>
+<br/>
+<form>
+    <div class="form-group row" *ngIf="editable === false">
+        <label class="col-sm-3 col-form-label" for="desc">Task name: </label>
+        <div class="col-sm-9">
+            <input type="text" id="desc" class="form-control" value="{{ indexedItem.getName() }}" [readonly]="editable"
+            [formControl]="taskNameForm"> 
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 col-form-label" for="desc">Propietary: </label>
+        <div class="col-sm-9">
+            <input type="text" id="desc" class="form-control" value="{{ indexedItem.getPropietary() }}" [readonly]="editable"
+            [formControl]="taskPropietaryForm"> 
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-3">Is the task completed?</div>
+        <div class="col-sm-9">
+            <div class="form-check">
+                <input *ngIf="editable" class="form-check-input" type="checkbox" id="gridCheck1" [checked]="indexedItem.isCompleted()" 
+                [disabled]="editable" [formControl]="taskCompletedForm">
+                <input *ngIf="!editable" class="form-check-input" type="checkbox" id="gridCheck2" [checked]="completed" 
+                [formControl]="taskCompletedForm">
+                <label id="labelYes" *ngIf="indexedItem.isCompleted() && editable" class="form-check-label" for="gridCheck1" >Yes</label>
+                <label id="labelYes" *ngIf="!indexedItem.isCompleted() && editable" class="form-check-label" for="gridCheck1">No</label>
+            </div>
+        </div>
+    </div>
+</form>
+<br/><hr>   
+<div class="row">
+    <button type="button" class="btn btn-dark" (click)="onEditButtonClick()" >Edit Task</button>
+    <p></p>
+    <button *ngIf="editable === false" type="button" class="btn btn-primary" (click)="onSaveEditButtonClick()" >Save Edited Task</button>
+    <p *ngIf="editable === false"></p>
+    <button type="button" class="btn btn-danger">Delete Task</button>
+</div>
+
+</div>

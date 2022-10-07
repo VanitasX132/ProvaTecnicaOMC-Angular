@@ -1,4 +1,4 @@
-<app-header-bar></app-header-bar>
-<app-home-page></app-home-page>
+<app-header-bar (onFeatureSelected)="loadFeature($event)"></app-header-bar>
+<app-home-page *ngIf="selectedFeature === 'home'"></app-home-page>
 <hr class="col-xs-12" style="margin: 2%;">
-<app-tasks-page></app-tasks-page>
+<app-tasks-page *ngIf="selectedFeature === 'tasklist'"></app-tasks-page>

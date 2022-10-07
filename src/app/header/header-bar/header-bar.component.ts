@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-header-bar',
@@ -6,6 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-bar.component.css']
 })
 export class HeaderBarComponent implements OnInit {
+  @Output() onFeatureSelected = new EventEmitter<string>();
+
+  onFeatureClicked(feature: string) {
+    this.onFeatureSelected.emit(feature);
+  }
 
   constructor() { }
 
