@@ -14,9 +14,9 @@ export class TaskDetailsComponent implements OnInit {
   taskNameForm = new FormControl('');
   taskPropietaryForm = new FormControl('');
   taskCompletedForm = new FormControl('');
-  dataToDisplay: Todo = new Todo(0, "", "", false);
   @Input() indexedItem: Todo = new Todo(0,"","",false);
   @Output() editedTask = new EventEmitter<Todo>();
+  @Output() taskToDelete = new EventEmitter<Todo>();
 
   checkIfCompleted() {
     this.completed = this.indexedItem.isCompleted();
@@ -28,21 +28,27 @@ export class TaskDetailsComponent implements OnInit {
     this.taskNameForm.setValue(this.indexedItem.getName());
     this.taskPropietaryForm.setValue(this.indexedItem.getPropietary());
     this.taskCompletedForm.setValue(String(this.completed));
-    console.log(this.taskCompletedForm.value);
   }
 
   onSaveEditButtonClick() {
     this.indexedItem.setName(String(this.taskNameForm.value));
     this.indexedItem.setPropietary(String(this.taskPropietaryForm.value));
-    this.indexedItem.setCompleted(Boolean(this.taskCompletedForm.value));
+    this.indexedItem.setCompleted(this.completed);
     this.editedTask.emit(this.indexedItem);
+    this.editable = true;
+  }
+
+  onDeleteButtonClick() {
+    this.indexedItem.setName(String(this.taskNameForm.value));
+    this.indexedItem.setPropietary(String(this.taskPropietaryForm.value));
+    this.indexedItem.setCompleted(this.completed);
+    this.taskToDelete.emit(this.indexedItem);
     this.editable = true;
   }
 
   constructor() { }
 
   ngOnInit(): void {
-    this.checkIfCompleted();
   }
 
 }

@@ -8,7 +8,7 @@ import { Todo } from '../task.model';
 })
 export class TasklistComponent implements OnInit {
   @Input() task: Todo = new Todo(0,"","",false);
-  @Input() index: number = 0;
+  @Input() index: number = -1;
 
   @Output() indexGiven = new EventEmitter<number>();
 

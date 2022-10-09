@@ -11,6 +11,7 @@ import { HomePageComponent } from './homepage/home-page/home-page.component';
 import { TasksPageComponent } from './tasks/tasks-page/tasks-page.component';
 import { NewTaskComponent } from './tasks/new-task/new-task.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

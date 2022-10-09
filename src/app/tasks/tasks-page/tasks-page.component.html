@@ -3,6 +3,9 @@
         <div class="row">
             <button type="button" class="btn btn-dark" (click)="onNewTaskButtonPressed('allowed')">New Task</button>
             <p></p>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search To-Do by username..." aria-label="Search" [formControl]="filterControl">
+            <button class="btn btn-outline-dark my-2 my-sm-0" (click)="filterByUsername()">Search</button>
+            <p></p>
             <ul class="list-group" *ngFor="let task of tasks; let i = index" style="margin: 1%;">
                 <app-tasklist [task]="task" [index]="i" (indexGiven)="gatherIndex($event)"></app-tasklist>
             </ul>
@@ -10,9 +13,13 @@
     </div>
     <div class="vr"></div>
     <div class="col-md-8" style="margin: 1%;">
-        <app-task-details *ngIf="newTaskChoice === 'not allowed' && indexedItem.getId() !== 0" 
-        [indexedItem]="indexedItem" (editedTask)="editTaskOnDataSource($any($event))"></app-task-details>
-        <app-new-task *ngIf="newTaskChoice === 'allowed'" (onTaskCreated)="addNewTask($any($event))" 
+        <app-task-details *ngIf="newTaskChoice === 'not allowed' && indexedItem.getId() !== -1" 
+        [indexedItem]="indexedItem" 
+        (editedTask)="editTaskOnDataSource($any($event))"
+        (taskToDelete)="deleteTaskOnDataSource($any($event))"></app-task-details>
+        <app-new-task *ngIf="newTaskChoice === 'allowed'" 
+        (onUserCreated)="addNewUser($any($event))"
+        (onTaskCreated)="addNewTask($any($event))" 
         (onNewTaskCancelled)="taskCreationCancelled($event)"></app-new-task>
     </div>
 </div>
