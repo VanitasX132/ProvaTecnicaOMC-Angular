@@ -4,3 +4,4 @@ Projecte front-end per a la prova tècnica de la empresa OhMyCode!, realitzada d
 
 ## Descripció
 
+Es tracta de una pàgina en la qual es poden registrar, consultar, modificar i eliminar diferents tasques quotidianes, guardant les dades de si estàn completades, o de quin usuari es. 
