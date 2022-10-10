@@ -1,0 +1,44 @@
+<form>
+    <div class="mb-3">
+        <label for="taskname" class="form-label">Task name</label>
+        <input id="taskname" class="form-control" type="text" placeholder="Task name goes here..." [formControl]="taskNameForm">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" (click)="changeNewUser()">
+        <label class="form-check-label" for="exampleCheck1">Are you a new user?</label>
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1" [formControl]="taskCompletedForm">
+        <label class="form-check-label" for="exampleCheck1">Is it completed?</label>
+    </div>
+    <p></p>
+    <div class="mb-3" *ngIf="!newUser">
+        <label for="taskpropietary" class="form-label">Task propietary (Username)</label>
+        <input type="text" class="form-control" id="taskpropietary" placeholder="Task propietary goes here..." [formControl]="taskPropietaryForm">
+    </div>
+    <br/>
+    <div class="mb-3" *ngIf="newUser">
+        <h5>Complete this form to register properly</h5>
+        <label for="taskpropietary" class="form-label">Name</label>
+        <input type="text" class="form-control" id="taskpropietary" placeholder="Input your name here..." [formControl]="newUserNameForm">
+        <label for="taskpropietary" class="form-label">Username</label>
+        <input type="text" class="form-control" id="taskpropietary" placeholder="Input your username here..." [formControl]="newUserUsernameForm">
+        <label for="taskpropietary" class="form-label">Password</label>
+        <input type="password" class="form-control" id="taskpropietary" placeholder="Input your password here..." [formControl]="newUserPasswordForm">
+        <label for="taskpropietary" class="form-label">Address Street</label>
+        <input type="text" class="form-control" id="taskpropietary" placeholder="Input your address' street here..." [formControl]="newUserStreetForm">
+        <label for="taskpropietary" class="form-label">Zipcode</label>
+        <input type="text" class="form-control" id="taskpropietary" placeholder="Input your zipcode here..." [formControl]="newUserZipcodeForm">
+        <label for="taskpropietary" class="form-label">City</label>
+        <input type="text" class="form-control" id="taskpropietary" placeholder="Input your city here..." [formControl]="newUserCityForm">
+        <label for="taskpropietary" class="form-label">Country</label>
+        <input type="text" class="form-control" id="taskpropietary" placeholder="Input your country here..." [formControl]="newUserCountryForm">
+    </div>
+    
+    <br/><br/>
+    <div class="row">
+        <button class="btn btn-dark" (click)="createNewTask()">Create</button>
+        <p></p>
+        <button class="btn btn-danger" (click)="cancelNewTask()">Cancel</button>
+    </div>
+</form>

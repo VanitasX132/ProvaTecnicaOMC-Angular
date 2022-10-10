@@ -5,3 +5,7 @@ a:hover {
 small {
     color: black;
 }
+
+.btn-dark:hover {
+    color: burlywood;
+}

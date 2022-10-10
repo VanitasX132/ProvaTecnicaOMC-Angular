@@ -9,6 +9,9 @@ import { TasklistComponent } from './tasks/tasklist/tasklist.component';
 import { TaskDetailsComponent } from './tasks/task-details/task-details.component';
 import { HomePageComponent } from './homepage/home-page/home-page.component';
 import { TasksPageComponent } from './tasks/tasks-page/tasks-page.component';
+import { NewTaskComponent } from './tasks/new-task/new-task.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import { TasksPageComponent } from './tasks/tasks-page/tasks-page.component';
     TasklistComponent,
     TaskDetailsComponent,
     HomePageComponent,
-    TasksPageComponent
+    TasksPageComponent,
+    NewTaskComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

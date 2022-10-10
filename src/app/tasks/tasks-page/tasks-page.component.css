@@ -1,3 +1,7 @@
-.vr {
-    background-color: black;   
+.btn-dark:hover {
+    color: burlywood;
+}
+
+.btn-outline-dark:hover {
+    color: burlywood;
 }

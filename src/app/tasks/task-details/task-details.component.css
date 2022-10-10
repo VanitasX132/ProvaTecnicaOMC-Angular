@@ -1,0 +1,15 @@
+input:disabled {
+    opacity: 0.9;
+}
+
+#labelYes {
+    opacity: 0.9 !important;
+}
+
+.btn-dark:hover {
+    color: burlywood;
+}
+
+.btn-primary {
+    background-color: green;
+}
